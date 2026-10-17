@@ -1,0 +1,231 @@
+Watching for file changes with StatReloader
+[17/Oct/2026 12:15:20] "GET / HTTP/1.1" 302 0
+[17/Oct/2026 12:15:20] "GET /books/ HTTP/1.1" 302 0
+[17/Oct/2026 12:15:20] "GET /login/?next=/books/ HTTP/1.1" 200 1180
+[17/Oct/2026 12:15:20] "GET /static/core/css/site.css HTTP/1.1" 200 4219
+Not Found: /favicon.ico
+[17/Oct/2026 12:15:20] "GET /favicon.ico HTTP/1.1" 404 3637
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 396, in verify
+    verified_claims = google.oauth2.id_token.verify_token(
+        token,
+    ...<2 lines>...
+        certs_url=self.cert_url,
+        clock_skew_in_seconds=clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\oauth2\id_token.py", line 168, in verify_token
+    return jwt.decode(
+           ~~~~~~~~~~^
+        id_token,
+        ^^^^^^^^^
+    ...<2 lines>...
+        clock_skew_in_seconds=clock_skew_in_seconds,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 305, in decode
+    _verify_iat_and_exp(payload, clock_skew_in_seconds)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 219, in _verify_iat_and_exp
+    raise exceptions.InvalidValue(
+    ...<3 lines>...
+    )
+google.auth.exceptions.InvalidValue: Token used too early, 1792257328 < 1792257400. Check that your computer's clock is set correctly.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\views.py", line 13, in login_view
+    user = services.sign_in(form.cleaned_data['email'], form.cleaned_data['password'])
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\services.py", line 28, in sign_in
+    decoded = auth.verify_id_token(response.json()['idToken'], clock_skew_seconds=10)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\auth.py", line 227, in verify_id_token
+    return client.verify_id_token(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        id_token, check_revoked=check_revoked, clock_skew_seconds=clock_skew_seconds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_auth_client.py", line 130, in verify_id_token
+    verified_claims = self._token_verifier.verify_id_token(id_token, clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 293, in verify_id_token
+    return self.id_token_verifier.verify(id_token, self.request, clock_skew_seconds)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 409, in verify
+    raise self._invalid_token_error(str(error), cause=error)
+firebase_admin._auth_utils.InvalidIdTokenError: Token used too early, 1792257328 < 1792257400. Check that your computer's clock is set correctly.
+[17/Oct/2026 12:15:28] "POST /login/?next=/books/ HTTP/1.1" 500 140989
+C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\services.py changed, reloading.
+Watching for file changes with StatReloader
+[17/Oct/2026 12:16:04] "GET / HTTP/1.1" 302 0
+[17/Oct/2026 12:16:04] "GET /books/ HTTP/1.1" 302 0
+[17/Oct/2026 12:16:04] "GET /login/?next=/books/ HTTP/1.1" 200 1180
+[17/Oct/2026 12:16:04] "GET /static/core/css/site.css HTTP/1.1" 304 0
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 396, in verify
+    verified_claims = google.oauth2.id_token.verify_token(
+        token,
+    ...<2 lines>...
+        certs_url=self.cert_url,
+        clock_skew_in_seconds=clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\oauth2\id_token.py", line 168, in verify_token
+    return jwt.decode(
+           ~~~~~~~~~~^
+        id_token,
+        ^^^^^^^^^
+    ...<2 lines>...
+        clock_skew_in_seconds=clock_skew_in_seconds,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 305, in decode
+    _verify_iat_and_exp(payload, clock_skew_in_seconds)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 219, in _verify_iat_and_exp
+    raise exceptions.InvalidValue(
+    ...<3 lines>...
+    )
+google.auth.exceptions.InvalidValue: Token used too early, 1792257371 < 1792257443. Check that your computer's clock is set correctly.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\views.py", line 13, in login_view
+    user = services.sign_in(form.cleaned_data['email'], form.cleaned_data['password'])
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\services.py", line 28, in sign_in
+    decoded = auth.verify_id_token(response.json()['idToken'], clock_skew_seconds=60)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\auth.py", line 227, in verify_id_token
+    return client.verify_id_token(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        id_token, check_revoked=check_revoked, clock_skew_seconds=clock_skew_seconds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_auth_client.py", line 130, in verify_id_token
+    verified_claims = self._token_verifier.verify_id_token(id_token, clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 293, in verify_id_token
+    return self.id_token_verifier.verify(id_token, self.request, clock_skew_seconds)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 409, in verify
+    raise self._invalid_token_error(str(error), cause=error)
+firebase_admin._auth_utils.InvalidIdTokenError: Token used too early, 1792257371 < 1792257443. Check that your computer's clock is set correctly.
+[17/Oct/2026 12:16:11] "POST /login/?next=/books/ HTTP/1.1" 500 141039
+[17/Oct/2026 12:16:16] "GET /login/ HTTP/1.1" 200 1180
+[17/Oct/2026 12:16:17] "GET /register/ HTTP/1.1" 200 1387
+[17/Oct/2026 12:16:18] "GET /login/ HTTP/1.1" 200 1180
+[17/Oct/2026 12:16:18] "GET /register/ HTTP/1.1" 200 1387
+[17/Oct/2026 12:16:45] "POST /register/ HTTP/1.1" 302 0
+[17/Oct/2026 12:16:45] "GET /login/ HTTP/1.1" 200 1258
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 396, in verify
+    verified_claims = google.oauth2.id_token.verify_token(
+        token,
+    ...<2 lines>...
+        certs_url=self.cert_url,
+        clock_skew_in_seconds=clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\oauth2\id_token.py", line 168, in verify_token
+    return jwt.decode(
+           ~~~~~~~~~~^
+        id_token,
+        ^^^^^^^^^
+    ...<2 lines>...
+        clock_skew_in_seconds=clock_skew_in_seconds,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 305, in decode
+    _verify_iat_and_exp(payload, clock_skew_in_seconds)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 219, in _verify_iat_and_exp
+    raise exceptions.InvalidValue(
+    ...<3 lines>...
+    )
+google.auth.exceptions.InvalidValue: Token used too early, 1792257420 < 1792257493. Check that your computer's clock is set correctly.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\views.py", line 13, in login_view
+    user = services.sign_in(form.cleaned_data['email'], form.cleaned_data['password'])
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\services.py", line 28, in sign_in
+    decoded = auth.verify_id_token(response.json()['idToken'], clock_skew_seconds=60)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\auth.py", line 227, in verify_id_token
+    return client.verify_id_token(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        id_token, check_revoked=check_revoked, clock_skew_seconds=clock_skew_seconds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_auth_client.py", line 130, in verify_id_token
+    verified_claims = self._token_verifier.verify_id_token(id_token, clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 293, in verify_id_token
+    return self.id_token_verifier.verify(id_token, self.request, clock_skew_seconds)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 409, in verify
+    raise self._invalid_token_error(str(error), cause=error)
+firebase_admin._auth_utils.InvalidIdTokenError: Token used too early, 1792257420 < 1792257493. Check that your computer's clock is set correctly.
+[17/Oct/2026 12:17:00] "POST /login/ HTTP/1.1" 500 140037
+[17/Oct/2026 12:17:53] "GET /login/ HTTP/1.1" 200 1180
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 396, in verify
+    verified_claims = google.oauth2.id_token.verify_token(
+        token,
+    ...<2 lines>...
+        certs_url=self.cert_url,
+        clock_skew_in_seconds=clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\oauth2\id_token.py", line 168, in verify_token
+    return jwt.decode(
+           ~~~~~~~~~~^
+        id_token,
+        ^^^^^^^^^
+    ...<2 lines>...
+        clock_skew_in_seconds=clock_skew_in_seconds,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 305, in decode
+    _verify_iat_and_exp(payload, clock_skew_in_seconds)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\google\auth\jwt.py", line 219, in _verify_iat_and_exp
+    raise exceptions.InvalidValue(
+    ...<3 lines>...
+    )
+google.auth.exceptions.InvalidValue: Token used too early, 1792257477 < 1792257550. Check that your computer's clock is set correctly.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\exception.py", line 56, in inner
+    response = get_response(request)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\django\core\handlers\base.py", line 199, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\views.py", line 13, in login_view
+    user = services.sign_in(form.cleaned_data['email'], form.cleaned_data['password'])
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\features\accounts\services.py", line 28, in sign_in
+    decoded = auth.verify_id_token(response.json()['idToken'], clock_skew_seconds=60)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\auth.py", line 227, in verify_id_token
+    return client.verify_id_token(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        id_token, check_revoked=check_revoked, clock_skew_seconds=clock_skew_seconds)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_auth_client.py", line 130, in verify_id_token
+    verified_claims = self._token_verifier.verify_id_token(id_token, clock_skew_seconds)
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 293, in verify_id_token
+    return self.id_token_verifier.verify(id_token, self.request, clock_skew_seconds)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESTUDIANTES\Documents\biblioteca\venv\Lib\site-packages\firebase_admin\_token_gen.py", line 409, in verify
+    raise self._invalid_token_error(str(error), cause=error)
+firebase_admin._auth_utils.InvalidIdTokenError: Token used too early, 1792257477 < 1792257550. Check that your computer's clock is set correctly.
+[17/Oct/2026 12:17:58] "POST /login/ HTTP/1.1" 500 140090
+[17/Oct/2026 12:19:09] "GET /login/?next=/books/ HTTP/1.1" 200 1180
+[17/Oct/2026 12:19:09] "GET /static/core/css/site.css HTTP/1.1" 304 0
+[17/Oct/2026 12:19:10] "GET /login/?next=/books/ HTTP/1.1" 200 1180
