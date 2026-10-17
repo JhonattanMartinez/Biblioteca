@@ -1,4 +1,6 @@
 """Conexión única a Firebase (Firestore + Auth) para todo el proyecto."""
+import json
+import os
 import firebase_admin
 from django.conf import settings
 from firebase_admin import credentials, firestore
@@ -8,6 +10,10 @@ def get_db():
     try:
         firebase_admin.get_app()
     except ValueError:
-        cred = credentials.Certificate(str(settings.FIREBASE_CREDENTIALS_PATH))
+        creds_json = os.environ.get('FIREBASE_CREDENTIALS_JSON')
+        if creds_json:
+            cred = credentials.Certificate(json.loads(creds_json))
+        else:
+            cred = credentials.Certificate(str(settings.FIREBASE_CREDENTIALS_PATH))
         firebase_admin.initialize_app(cred)
     return firestore.client()
